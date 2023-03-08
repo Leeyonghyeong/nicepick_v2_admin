@@ -1,9 +1,9 @@
 <template>
-  <Main />
+  <Dashboard />
 </template>
 
 <script lang="ts" setup>
-import Main from '../components/Main.vue'
+import Dashboard from '../../components/dashboard/Dashboard.vue'
 </script>
 
 <style lang="scss" scoped>
