@@ -67,16 +67,56 @@ section {
       display: flex;
       justify-content: space-between;
       gap: 30px;
+      line-height: 20px;
 
       .content {
         font-size: 15px;
         color: $fontMain;
         font-weight: 300;
+        display: inline-block;
+        width: 980px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .date {
         font-size: 13px;
         color: $fontSub;
+      }
+    }
+  }
+}
+
+@include mobile {
+  section {
+    .title-wrapper {
+      .title {
+        font-size: 16px;
+      }
+
+      .all {
+        font-size: 12px;
+      }
+    }
+
+    .new-post-wrapper {
+      padding: 20px;
+      gap: 20px;
+      .post {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+
+        .content {
+          font-size: 13px;
+          width: 100%;
+          white-space: normal;
+          word-wrap: break-word;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
       }
     }
   }

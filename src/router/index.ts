@@ -24,6 +24,21 @@ const routes: Array<RouteRecordRaw> = [
         name: 'dashboard',
         component: () => import('../views/dashboard/index.vue'),
       },
+      {
+        path: '/traffic',
+        name: 'traffic',
+        component: () => import('../views/traffic/index.vue'),
+      },
+      {
+        path: '/sale/all',
+        name: 'saleAll',
+        component: () => import('../views/sale/all/index.vue'),
+      },
+      {
+        path: '/sale/detail',
+        name: 'saleDetail',
+        component: () => import('../views/sale/detail/index.vue'),
+      },
     ],
   },
 ]
