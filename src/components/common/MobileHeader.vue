@@ -1,16 +1,33 @@
 <template>
   <section>
-    <div class="menu">
-      <img src="../../assets/button/hammenu.png" alt="메뉴" />
+    <div id="menu">
+      <img
+        src="../../assets/button/hammenu.png"
+        alt="메뉴"
+        @click="showAndCloseCategory"
+      />
     </div>
     <div class="title">{{ title }}</div>
+    <MobileCategory
+      v-if="isShowCategory"
+      @showAndCloseCategory="showAndCloseCategory"
+    />
   </section>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+import MobileCategory from './modal/MobileCategory.vue'
+
 defineProps<{
   title: string
 }>()
+
+const isShowCategory = ref<boolean>(false)
+
+const showAndCloseCategory = () => {
+  isShowCategory.value = !isShowCategory.value
+}
 </script>
 
 <style lang="scss" scoped>

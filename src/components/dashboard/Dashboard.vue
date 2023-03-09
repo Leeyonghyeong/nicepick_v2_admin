@@ -10,20 +10,21 @@
           <div class="count">000,000,000,000원</div>
         </div>
         <div class="box">
-          <div>
+          <div class="left-wrapper">
             <div class="name">개인 회원</div>
             <div class="count">
-              <span class="point">3</span>
-              <span class="regular">/</span>
-              1,226 <span class="sub">명</span>
+              <span class="point">3</span> <span class="regular">/</span> 1,226
+              <span class="sub">명</span>
             </div>
           </div>
-          <div>
+          <div class="border">
+            <img src="../../assets/dashboard/line.png" alt="구분선" />
+          </div>
+          <div class="right-wrapper">
             <div class="name">파트너 회원</div>
             <div class="count">
-              <span class="point">5</span>
-              <span class="regular">/</span>
-              134 <span class="sub">명</span>
+              <span class="point">5</span> <span class="regular">/</span> 134
+              <span class="sub">명</span>
             </div>
           </div>
         </div>
@@ -32,24 +33,22 @@
           <div class="box">
             <div class="name">브랜드 MATCH</div>
             <div class="count">
-              <span class="point">5</span>
-              <span class="regular">/</span>
-              24 <span class="sub">건</span>
+              <span class="point">5</span> <span class="regular">/</span> 24
+              <span class="sub">건</span>
             </div>
           </div>
           <div class="box">
             <div class="name">미가입 브랜드 문의</div>
             <div class="count">
-              <span class="point">3</span>
-              <span class="regular">/</span>
-              250 <span class="sub">건</span>
+              <span class="point">3</span> <span class="regular">/</span> 250
+              <span class="sub">건</span>
             </div>
           </div>
         </div>
       </div>
     </article>
 
-    <CommunityNewPost />
+    <CommunityNewPost class="community-post" />
   </section>
 </template>
 
@@ -88,6 +87,7 @@ const { getDevice } = storeToRefs(windowStore)
         height: 130px;
         border: 1px solid $iconLine;
         border-radius: 10px;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -117,10 +117,14 @@ const { getDevice } = storeToRefs(windowStore)
 
         &:nth-child(2) {
           flex-direction: row;
-          gap: 56px;
 
           div {
             text-align: center;
+          }
+
+          .left-wrapper,
+          .right-wrapper {
+            width: 50%;
           }
         }
       }
@@ -158,12 +162,20 @@ const { getDevice } = storeToRefs(windowStore)
 
         .box {
           width: 100%;
+
+          .count {
+            font-size: 20px;
+          }
         }
 
         .mobile-wrapper {
           gap: 8px;
         }
       }
+    }
+
+    .community-post {
+      padding: 0 24px 60px;
     }
   }
 }
