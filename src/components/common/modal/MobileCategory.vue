@@ -38,6 +38,7 @@
             alt="대시보드"
           />
         </div>
+
         <div
           class="category"
           :class="{ select: $route.path.includes('/traffic') }"
@@ -54,34 +55,52 @@
             alt="트래픽"
           />
         </div>
+
         <div
           class="category"
-          :class="{ select: $route.path.includes('/sale') }"
+          :class="{ select: $route.path.includes('/sale/') }"
         >
-          <img
-            v-if="$route.path.includes('/sale')"
-            src="../../../assets/category/mob/sale_active.png"
-            alt="매출"
-          />
-          <img
-            v-else
-            @click="$router.push('/sale')"
-            src="../../../assets/category/mob/sale.png"
-            alt="매출"
-          />
-          <img
-            v-if="$route.path.includes('/sale')"
-            src="../../../assets/category/mob/close.png"
-            class="button"
-            alt="닫기"
-          />
-          <img
-            v-else
-            src="../../../assets/category/mob/open.png"
-            class="button"
-            alt="열기"
-          />
+          <div v-if="$route.path.includes('/sale/')">
+            <img
+              src="../../../assets/category/mob/sale_active.png"
+              alt="매출"
+            />
+            <img
+              src="../../../assets/category/mob/close.png"
+              class="button"
+              alt="닫기"
+            />
+          </div>
+
+          <div v-else>
+            <img
+              @click="$router.push('/sale/all')"
+              src="../../../assets/category/mob/sale.png"
+              alt="매출"
+            />
+            <img
+              src="../../../assets/category/mob/open.png"
+              class="button"
+              alt="열기"
+            />
+          </div>
+
+          <div v-if="$route.path.includes('/sale/')" class="sub-category">
+            <div
+              :class="{ selectSub: $route.path.includes('/sale/all') }"
+              @click="$router.push('/sale/all')"
+            >
+              전체매출
+            </div>
+            <div
+              :class="{ selectSub: $route.path.includes('/sale/detail') }"
+              @click="$router.push('/sale/detail')"
+            >
+              상세매출
+            </div>
+          </div>
         </div>
+
         <div
           class="category"
           :class="{ select: $route.path.includes('/member') }"
@@ -164,7 +183,6 @@ defineEmits<{
           font-size: 12px;
           font-family: $pre;
           color: white;
-          cursor: pointer;
         }
       }
     }
@@ -177,20 +195,43 @@ defineEmits<{
 
       .category {
         width: 100%;
-        height: 50px;
         border-radius: 10px;
+
         img {
           width: 293px;
         }
 
         &:nth-child(3) {
+          div {
+            display: flex;
+            align-items: center;
+
+            .button {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        .sub-category {
+          padding: 10px 15px;
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .button {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
+          flex-direction: column;
+          gap: 5px;
+
+          div {
+            width: 100%;
+            height: 40px;
+            padding: 11px 0 12px 35px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            font-size: 14px;
+            color: $fontMain;
+          }
+
+          .selectSub {
+            background-color: #f5f7ff;
+            color: $mainColor;
           }
         }
       }
