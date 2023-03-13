@@ -55,33 +55,23 @@
         />
         <img
           v-else
-          @click="router.push('/sale/all')"
+          @click="$router.push('/sale/all')"
           src="../../assets/category/sale.png"
           alt="매출"
         />
         <div v-if="$route.path.includes('/sale/')" class="sub-category">
-          <img
-            v-if="$route.path.includes('/sale/all')"
-            src="../../assets/category/sale_all_active.png"
-            alt="전체매출"
-          />
-          <img
-            v-else
-            @click="router.push('/sale/all')"
-            src="../../assets/category/sale_all.png"
-            alt="전체매출"
-          />
-          <img
-            v-if="$route.path.includes('/sale/detail')"
-            src="../../assets/category/sale_detail_active.png"
-            alt="상세매출"
-          />
-          <img
-            v-else
-            @click="router.push('/sale/detail')"
-            src="../../assets/category/sale_detail.png"
-            alt="상세매출"
-          />
+          <div
+            :class="{ selectSub: $route.path.includes('/sale/all') }"
+            @click="$router.push('/sale/all')"
+          >
+            전체매출
+          </div>
+          <div
+            :class="{ selectSub: $route.path.includes('/sale/detail') }"
+            @click="$router.push('/sale/detail')"
+          >
+            상세매출
+          </div>
         </div>
       </div>
 
@@ -199,9 +189,26 @@ section {
       }
 
       .sub-category {
-        padding: 0 15px 10px;
-        img {
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        div {
           width: 240px;
+          height: 40px;
+          padding: 11px 0 12px 35px;
+          box-sizing: border-box;
+          border-radius: 10px;
+          font-size: 14px;
+          color: $fontMain;
+          cursor: pointer;
+        }
+
+        div:hover,
+        .selectSub {
+          background-color: #f5f7ff;
+          color: $mainColor;
         }
       }
     }
