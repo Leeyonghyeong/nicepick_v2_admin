@@ -21,8 +21,11 @@
       </div>
 
       <div class="list">
-        <div class="item">프리미엄 멤버십</div>
-        <div class="cost">000,000,000원</div>
+        <div class="item">분양·임대 전체</div>
+        <div class="cost">
+          000,000,000원
+          <span class="sub">(000,000원 + 옵션 000,000원)</span>
+        </div>
         <div class="name">홍길동</div>
         <div class="date">2023.01.01</div>
         <div class="payment">카드결제</div>
@@ -30,8 +33,11 @@
       </div>
 
       <div class="list">
-        <div class="item">프리미엄 멤버십</div>
-        <div class="cost">000,000,000원</div>
+        <div class="item">분양·임대 전체</div>
+        <div class="cost">
+          000,000,000원
+          <span class="sub">(000,000원 + 옵션 000,000원)</span>
+        </div>
         <div class="name">홍길동</div>
         <div class="date">2023.01.01</div>
         <div class="payment">카드결제</div>
@@ -51,34 +57,22 @@
     <article class="item-modal" v-if="showItemModal === true">
       <div class="item-wrapper">
         <div
-          :class="{ selectItem: item === '프랜차이즈 전체' }"
-          @click="item = '프랜차이즈 전체'"
+          :class="{ selectItem: item === '분양·임대 전체' }"
+          @click="item = '분양·임대 전체'"
         >
-          프랜차이즈 전체
+          분양·임대 전체
         </div>
         <div
-          :class="{ selectItem: item === '프리미엄 멤버십' }"
-          @click="item = '프리미엄 멤버십'"
+          :class="{ selectItem: item === '분양 등록권' }"
+          @click="item = '분양 등록권'"
         >
-          프리미엄 멤버십
+          분양 등록권
         </div>
         <div
-          :class="{ selectItem: item === '유망브랜드' }"
-          @click="item = '유망브랜드'"
+          :class="{ selectItem: item === '임대 등록권' }"
+          @click="item = '임대 등록권'"
         >
-          유망브랜드
-        </div>
-        <div
-          :class="{ selectItem: item === '브랜드핫클립' }"
-          @click="item = '브랜드핫클립'"
-        >
-          브랜드핫클립
-        </div>
-        <div
-          :class="{ selectItem: item === '추천 브랜드1' }"
-          @click="item = '추천 브랜드1'"
-        >
-          추천 브랜드1
+          임대 등록권
         </div>
       </div>
     </article>
@@ -89,7 +83,7 @@
 import { ref } from 'vue'
 
 const pageNum = ref<number>(1)
-const item = ref<string>('프랜차이즈 전체')
+const item = ref<string>('분양·임대 전체')
 const showItemModal = ref<boolean>(false)
 </script>
 
@@ -140,7 +134,7 @@ const showItemModal = ref<boolean>(false)
     }
 
     .list {
-      height: 50px;
+      height: 80px;
       display: flex;
       justify-content: center;
       gap: 30px;
@@ -165,6 +159,17 @@ const showItemModal = ref<boolean>(false)
       .card {
         font-size: 14px;
         color: $fontSub;
+      }
+
+      .cost {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .sub {
+          font-size: 12px;
+          color: $fontSub;
+        }
       }
     }
   }

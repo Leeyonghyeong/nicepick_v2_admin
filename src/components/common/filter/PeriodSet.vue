@@ -134,7 +134,7 @@ const selectPeriod = ref<string>('all')
     }
 
     .name-btn-wrapper {
-      padding: 0 24px 10px;
+      padding: 0 24px 20px;
       gap: 13px;
 
       .name {

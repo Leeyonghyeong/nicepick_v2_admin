@@ -1,8 +1,6 @@
 <template>
   <section class="search">
     <article class="wrapper">
-      <div class="name">검색</div>
-
       <div class="input-btn">
         <div class="input">
           <input type="text" placeholder="검색어 입력" />
@@ -24,11 +22,6 @@
   .wrapper {
     display: flex;
     align-items: center;
-
-    .name {
-      font-size: 15px;
-      color: $fontMain;
-    }
 
     .input-btn {
       display: flex;
@@ -71,11 +64,6 @@
     .wrapper {
       padding: 0 24px;
       gap: 13px;
-
-      .name {
-        width: 20%;
-        font-size: 12px;
-      }
 
       .input-btn {
         width: 100%;
