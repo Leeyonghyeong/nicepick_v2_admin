@@ -13,7 +13,10 @@
     </article>
 
     <article class="list-wrapper">
-      <FranchiseList />
+      <AllList v-if="selectCategory === 'all'" />
+      <FranchiseList v-else-if="selectCategory === 'franchise'" />
+      <RealtorList v-else-if="selectCategory === 'realtor'" />
+      <SaleRentList v-else />
     </article>
   </section>
 </template>
@@ -24,12 +27,18 @@ import PeriodSet from '../../common/filter/PeriodSet.vue'
 import CategorySet from '../../common/filter/CategorySet.vue'
 import Payment from '../../common/filter/Payment.vue'
 import Search from '../../common/search/Search.vue'
+import AllList from './AllList.vue'
+import FranchiseList from './FranchiseList.vue'
+import RealtorList from './RealtorList.vue'
+import SaleRentList from './SaleRentList.vue'
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useWindowStore } from '../../../store/window'
-import FranchiseList from './FranchiseList.vue'
 
 const windowStore = useWindowStore()
 const { getDevice } = storeToRefs(windowStore)
+
+const selectCategory = ref<string>('all')
 </script>
 
 <style lang="scss" scoped>
@@ -48,6 +57,7 @@ const { getDevice } = storeToRefs(windowStore)
   }
 
   .filter-wrapper {
+    padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -59,7 +69,12 @@ const { getDevice } = storeToRefs(windowStore)
     padding: 0;
 
     .filter-wrapper {
-      padding: 20px 0 0;
+      padding: 20px 0 30px;
+      border-bottom: 10px solid #fafafa;
+    }
+
+    .list-wrapper {
+      padding-bottom: 35px;
     }
   }
 }

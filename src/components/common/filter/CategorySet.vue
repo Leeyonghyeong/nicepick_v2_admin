@@ -7,32 +7,33 @@
         <div class="btn-wrapper">
           <div class="btn">
             <button
-              :class="{ select: selectPeriod === 'all' }"
-              @click="selectPeriod = 'all'"
+              :class="{ select: selectCategory === 'all' }"
+              @click="selectCategory = 'all'"
             >
               전체
             </button>
             <button
-              :class="{ select: selectPeriod === 'franchise' }"
-              @click="selectPeriod = 'franchise'"
+              :class="{ select: selectCategory === 'franchise' }"
+              @click="selectCategory = 'franchise'"
             >
               프랜차이즈
             </button>
             <button
-              :class="{ select: selectPeriod === 'realtor' }"
-              @click="selectPeriod = 'realtor'"
+              :class="{ select: selectCategory === 'realtor' }"
+              @click="selectCategory = 'realtor'"
             >
               공인중개사
             </button>
             <button
-              :class="{ select: selectPeriod === 'cooperation' }"
-              @click="selectPeriod = 'cooperation'"
+              :class="{ select: selectCategory === 'cooperation' }"
+              @click="selectCategory = 'cooperation'"
+              disabled
             >
               협력
             </button>
             <button
-              :class="{ select: selectPeriod === 'saleRent' }"
-              @click="selectPeriod = 'saleRent'"
+              :class="{ select: selectCategory === 'saleRent' }"
+              @click="selectCategory = 'saleRent'"
             >
               분양·임대
             </button>
@@ -46,7 +47,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const selectPeriod = ref<string>('all')
+const selectCategory = ref<string>('all')
 </script>
 
 <style lang="scss" scoped>

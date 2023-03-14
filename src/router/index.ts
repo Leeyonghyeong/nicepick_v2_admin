@@ -39,6 +39,16 @@ const routes: Array<RouteRecordRaw> = [
         name: 'saleDetail',
         component: () => import('../views/sale/detail/index.vue'),
       },
+      {
+        path: '/member',
+        name: 'member',
+        component: () => import('../views/member/index.vue'),
+      },
+      {
+        path: '/user/keyword',
+        name: 'userKeyword',
+        component: () => import('../views/user/keyword/index.vue'),
+      },
     ],
   },
 ]

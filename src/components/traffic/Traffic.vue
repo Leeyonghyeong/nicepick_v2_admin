@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="width">
-          <div style="cursor: default" class="category">협력</div>
+          <div class="category">협력</div>
         </div>
       </div>
     </article>

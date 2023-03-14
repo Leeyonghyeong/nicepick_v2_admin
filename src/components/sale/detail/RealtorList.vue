@@ -21,7 +21,7 @@
       </div>
 
       <div class="list">
-        <div class="item">프리미엄 멤버십</div>
+        <div class="item">상권 지역플러스+</div>
         <div class="cost">000,000,000원</div>
         <div class="name">홍길동</div>
         <div class="date">2023.01.01</div>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="list">
-        <div class="item">프리미엄 멤버십</div>
+        <div class="item">상권 지역플러스+</div>
         <div class="cost">000,000,000원</div>
         <div class="name">홍길동</div>
         <div class="date">2023.01.01</div>
@@ -51,34 +51,22 @@
     <article class="item-modal" v-if="showItemModal === true">
       <div class="item-wrapper">
         <div
-          :class="{ selectItem: item === '프랜차이즈 전체' }"
-          @click="item = '프랜차이즈 전체'"
+          :class="{ selectItem: item === '공인중개사 전체' }"
+          @click="item = '공인중개사 전체'"
         >
-          프랜차이즈 전체
+          공인중개사 전체
         </div>
         <div
-          :class="{ selectItem: item === '프리미엄 멤버십' }"
-          @click="item = '프리미엄 멤버십'"
+          :class="{ selectItem: item === '상권 지역플러스+' }"
+          @click="item = '상권 지역플러스+'"
         >
-          프리미엄 멤버십
+          상권 지역플러스+
         </div>
         <div
-          :class="{ selectItem: item === '유망브랜드' }"
-          @click="item = '유망브랜드'"
+          :class="{ selectItem: item === '추천중개사' }"
+          @click="item = '추천중개사'"
         >
-          유망브랜드
-        </div>
-        <div
-          :class="{ selectItem: item === '브랜드핫클립' }"
-          @click="item = '브랜드핫클립'"
-        >
-          브랜드핫클립
-        </div>
-        <div
-          :class="{ selectItem: item === '추천 브랜드1' }"
-          @click="item = '추천 브랜드1'"
-        >
-          추천 브랜드1
+          추천중개사
         </div>
       </div>
     </article>
@@ -89,7 +77,7 @@
 import { ref } from 'vue'
 
 const pageNum = ref<number>(1)
-const item = ref<string>('프랜차이즈 전체')
+const item = ref<string>('공인중개사 전체')
 const showItemModal = ref<boolean>(false)
 </script>
 
